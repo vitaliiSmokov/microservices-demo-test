@@ -1,14 +1,6 @@
-plugins {
-    id 'java'
-}
-
 ext {
     junitVersion = '5.3.1'
     restAssuredVersion = '3.2.0'
-}
-
-repositories {
-    jcenter()
 }
 
 dependencies {
@@ -16,6 +8,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     implementation("io.rest-assured:rest-assured:$restAssuredVersion")
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
 
 }
 

@@ -10,7 +10,12 @@ buildscript {
 }
 
 subprojects {
+    apply plugin: 'java'
     apply plugin: 'io.franzbecker.gradle-lombok'
+
+    repositories {
+        jcenter()
+    }
 }
 
 task wrapper(type: Wrapper) {
