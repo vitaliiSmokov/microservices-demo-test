@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+ext {
+    junitVersion = '5.3.1'
+    restAssuredVersion = '3.2.0'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    implementation("io.rest-assured:rest-assured:$restAssuredVersion")
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+
+}
+
+test {
+    useJUnitPlatform()
+}
