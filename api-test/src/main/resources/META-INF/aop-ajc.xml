@@ -1,0 +1,5 @@
+<aspectj>
+    <aspects>
+        <aspect name="com.socks.api.aspect.LoggableAspect"/>
+    </aspects>
+</aspectj>

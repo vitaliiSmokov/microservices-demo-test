@@ -1,6 +1,6 @@
 package com.socks.api.services;
 
-import com.socks.api.AssertableResponse;
+import com.socks.api.assertions.AssertableResponse;
 import com.socks.api.model.User;
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
@@ -9,11 +9,8 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-@Slf4j
+//@Slf4j
 public class UserApiService {
 
     public RequestSpecification setUp() {
@@ -30,8 +27,8 @@ public class UserApiService {
 
     @Step
     public AssertableResponse registerUser(User user) {
-        Logger log = LoggerFactory.getLogger(UserApiService.class);
-        log.info("register user: {}", user);
+//        Logger log = LoggerFactory.getLogger(UserApiService.class);
+//        log.info("register user: {}", user);
 
         return new AssertableResponse(setUp()
                 .body(user)

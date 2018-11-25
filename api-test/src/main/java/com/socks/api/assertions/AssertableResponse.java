@@ -1,9 +1,8 @@
-package com.socks.api;
+package com.socks.api.assertions;
 
 import com.socks.api.conditions.Condition;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
