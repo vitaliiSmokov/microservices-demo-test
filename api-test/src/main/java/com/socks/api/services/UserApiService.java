@@ -1,13 +1,17 @@
 package com.socks.api.services;
 
+import com.socks.api.AssertableResponse;
 import com.socks.api.model.User;
+import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
-import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class UserApiService {
@@ -16,17 +20,23 @@ public class UserApiService {
         return RestAssured
                 .given()
                 .contentType(ContentType.JSON)
-                .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+                .filters(
+                        new RequestLoggingFilter(),
+                        new ResponseLoggingFilter(),
+                        new AllureRestAssured()
+                );
 //                .log().all();
     }
 
-    public ValidatableResponse registerUser(User user) {
+    @Step
+    public AssertableResponse registerUser(User user) {
+        Logger log = LoggerFactory.getLogger(UserApiService.class);
         log.info("register user: {}", user);
 
-        return setUp()
+        return new AssertableResponse(setUp()
                 .body(user)
                 .when()
                 .post("register")
-                .then();
+                .then());
     }
 }
