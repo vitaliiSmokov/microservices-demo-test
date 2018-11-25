@@ -9,6 +9,6 @@ public class Conditions {
     }
 
     public static BodyCondition body(String id, Matcher<String> matcher) {
-        return new BodyCondition(id , matcher);
+        return new BodyCondition(id, matcher);
     }
 }

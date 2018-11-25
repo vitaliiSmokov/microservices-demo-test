@@ -4,16 +4,16 @@ import io.restassured.response.ValidatableResponse;
 import lombok.AllArgsConstructor;
 import org.hamcrest.Matcher;
 
-//@AllArgsConstructor
-public class BodyCondition implements Condition{
+@AllArgsConstructor
+public class BodyCondition implements Condition {
 
     private String jsonPath;
     private Matcher<String> matcher;
 
-    BodyCondition(String jsonPath, Matcher<String> matcher) {
-        this.jsonPath = jsonPath;
-        this.matcher = matcher;
-    }
+//    BodyCondition(String jsonPath, Matcher<String> matcher) {
+//        this.jsonPath = jsonPath;
+//        this.matcher = matcher;
+//    }
 
     @Override
     public void verify(ValidatableResponse validatableResponse) {

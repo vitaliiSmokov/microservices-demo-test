@@ -1,6 +1,8 @@
 package com.socks.tests.brutal;
 
-import com.socks.api.conditions.Conditions;
+import com.devskiller.jfairy.Fairy;
+import com.devskiller.jfairy.producer.person.Person;
+import com.github.javafaker.Faker;
 import com.socks.api.model.User;
 import com.socks.api.services.UserApiService;
 import io.restassured.RestAssured;
@@ -19,6 +21,8 @@ import static org.hamcrest.Matchers.not;
 class UserManagerTest {
 
     private UserApiService userApiService = new UserApiService();
+    private Faker faker = new Faker(); //new Faker(new Locale("ru"));
+    private Person person = Fairy.create().person(); // create(new Locale("ru"));
 
     @BeforeAll
     static void setUp() {
@@ -30,10 +34,11 @@ class UserManagerTest {
 
 //        given
         User user = new User()
-                .setFirstName("Vitalii")
-                .setLastName("Smokov")
-                .setUsername(RandomStringUtils.randomAlphanumeric(6))
-                .setEmail("test@mail.com")
+                .setFirstName(faker.name().firstName())
+                .setLastName(faker.name().lastName())
+//                .setUsername(RandomStringUtils.randomAlphanumeric(6))
+                .setUsername(faker.name().username())
+                .setEmail(faker.internet().emailAddress())
                 .setPassword("test123");
 
 //        when
@@ -57,10 +62,10 @@ class UserManagerTest {
     void testCanRegisterUserWithInValidCredentials() {
 
         User user = new User()
-                .setFirstName("Vitalii")
-                .setLastName("Smokov")
-                .setUsername(RandomStringUtils.randomAlphanumeric(6))
-                .setEmail("test@mail.com")
+                .setFirstName(person.getFirstName())
+                .setLastName(person.getLastName())
+                .setUsername(person.getUsername())
+                .setEmail(person.getEmail())
                 .setPassword("test123");
 
         userApiService
