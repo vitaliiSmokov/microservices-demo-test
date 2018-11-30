@@ -1,0 +1,18 @@
+ext{
+    testNgVersion = '6.13'
+    selenideVersion = '4.12.1'
+}
+
+dependencies {
+    compile project(":api-test")
+    compile "com.cdeborne:selenide:$selenideVersion"
+    compile "org.testng:testng:$testNgVersion"
+}
+
+test {
+    useTestNG()
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat = 'full'
+    }
+}

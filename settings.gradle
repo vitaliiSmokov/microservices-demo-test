@@ -1,3 +1,4 @@
 rootProject.name = 'microservices-demo'
 include 'api-test'
+include 'ui-tests'
 
