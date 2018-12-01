@@ -16,4 +16,11 @@ test {
         events "PASSED", "FAILED", "SKIPPED"
         exceptionFormat = 'full'
     }
+    test.outputs.upToDateWhen {false}
+}
+
+allure {
+    version = '2.4.1'
+    aspectjweaver = true
+    autoconfigure = true
 }
