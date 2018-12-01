@@ -1,11 +1,12 @@
 ext{
     testNgVersion = '6.13'
-    selenideVersion = '4.12.1'
+//    selenideVersion = '4.12.1'
+    selenideVersion = '5.0.1'
 }
 
 dependencies {
     compile project(":api-test")
-    compile "com.cdeborne:selenide:$selenideVersion"
+    compile "com.codeborne:selenide:$selenideVersion"
     compile "org.testng:testng:$testNgVersion"
 }
 

@@ -10,8 +10,6 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class UserApiService {
@@ -30,7 +28,6 @@ public class UserApiService {
 
     @Step
     public AssertableResponse registerUser(User user) {
-        Logger log = LoggerFactory.getLogger(UserApiService.class);
         log.info("register user: {}", user);
 
         return new AssertableResponse(setUp()
