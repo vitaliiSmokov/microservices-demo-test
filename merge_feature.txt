@@ -1,0 +1,12 @@
+Добавление завершённой функциональности в develop
+
+Завершённая функциональность (фича) вливается обратно в ветвь разработки (develop) и попадает в следующий релиз.
+
+$ git checkout develop
+Switched to branch 'develop'
+$ git merge --no-ff <myfeature>
+Updating ea1b82a..05e9557
+(Отчёт об изменениях)
+$ git branch -d <myfeature>
+Deleted branch <myfeature> (was 05e9557).
+$ git push origin develop

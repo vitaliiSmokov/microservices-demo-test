@@ -14,26 +14,26 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserApiService {
 
-    public RequestSpecification setUp() {
-        return RestAssured
-                .given()
-                .contentType(ContentType.JSON)
-                .filters(
-                        new RequestLoggingFilter(),
-                        new ResponseLoggingFilter(),
-                        new AllureRestAssured()
-                );
+  public RequestSpecification setUp() {
+    return RestAssured
+        .given()
+        .contentType(ContentType.JSON)
+        .filters(
+            new RequestLoggingFilter(),
+            new ResponseLoggingFilter(),
+            new AllureRestAssured()
+        );
 //                .log().all();
-    }
+  }
 
-    @Step
-    public AssertableResponse registerUser(User user) {
-        log.info("register user: {}", user);
+  @Step
+  public AssertableResponse registerUser(User user) {
+    log.info("register user: {}", user);
 
-        return new AssertableResponse(setUp()
-                .body(user)
-                .when()
-                .post("register")
-                .then());
-    }
+    return new AssertableResponse(setUp()
+        .body(user)
+        .when()
+        .post("register")
+        .then());
+  }
 }

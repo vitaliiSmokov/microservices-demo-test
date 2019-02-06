@@ -1,0 +1,12 @@
+ $ [System.Text.Encoding]::Default.Codepage
+1251
+~ $ [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
+~ $ [System.Text.Encoding]::Default.Codepage
+1251
+
+~ lop$OutputEncoding = [System.Text.Encoding]::Unicode
+~ $OutputEncoding
+
+translations/pages/homePage/UA.json
+
+C:\Users\user\IdeaProjects\lukspay-selenide-test\ui-test\src\main\resources\translations\pages\homePage\UA.json

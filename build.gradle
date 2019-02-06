@@ -5,6 +5,7 @@ buildscript {
         }
     }
     dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
         classpath "io.franzbecker:gradle-lombok:1.14"
         classpath "io.qameta.allure:allure-gradle:2.5"
     }
@@ -14,12 +15,28 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'io.franzbecker.gradle-lombok'
     apply plugin: 'io.qameta.allure'
+    apply plugin: 'io.spring.dependency-management'
 
     repositories {
+        mavenLocal()
         jcenter()
     }
+    compileJava.options.encoding = 'UTF-8'
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    tasks.withType(Test) {
+        maxParallelForks = Runtime.runtime.availableProcessors()
+//                .intdiv(2) ?: 1
+        forkEvery = 100
+    }
+//    tasks.withType(Test)*.finalizedBy allureReport
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.10.2'
 }
+
+

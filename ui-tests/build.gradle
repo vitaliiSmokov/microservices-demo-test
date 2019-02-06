@@ -1,27 +1,89 @@
-ext{
+ext {
     testNgVersion = '6.13'
-//    selenideVersion = '4.12.1'
-    selenideVersion = '5.0.1'
+    selenideVersion = '4.12.1'
+//    selenideVersion = '5.0.1'
 }
 
 dependencies {
     compile project(":api-test")
     compile "com.codeborne:selenide:$selenideVersion"
     compile "org.testng:testng:$testNgVersion"
+    compile "org.codehaus.groovy:groovy-xml:2.4.15"
+//    testImplementation('io.qameta.allure:allure-selenide:2.8.1')
+
+//    Java mail
+    compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
+    compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+    compile group: 'com.sun.mail', name: 'smtp', version: '1.6.3'
+
 }
 
-test {
-    useTestNG()
+allure {
+    version = '2.4.1'
+    aspectjweaver = true
+    autoconfigure = true
+
+//    resultsDir = file("${projectDir}/allure-results")
+//    reportDir = file("${projectDir}/allure-report")
+}
+
+task testRemote(type: Test) {
+    systemProperties['selenide.browser'] = 'remote'
+    useTestNG() {
+        useDefaultListeners = true
+//        suites 'src/test/java/resources/TestNG.xml'
+    }
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"
         exceptionFormat = 'full'
     }
-    test.outputs.upToDateWhen {false}
+    test.outputs.upToDateWhen { false }
 }
 
-allure {
-//    version = '2.4.1'
-    version = '2.7.0'
-    aspectjweaver = true
-    autoconfigure = true
+task testFirefox(type: Test) {
+    systemProperties['selenide.browser'] = 'firefox'
+    useTestNG() {
+        useDefaultListeners = true
+    }
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat = 'full'
+    }
+    test.outputs.upToDateWhen { false }
 }
+
+test {
+    useTestNG() {
+        useDefaultListeners = true
+//        suites 'src/test/java/resources/TestNG.xml'
+    }
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat = 'full'
+    }
+    test.outputs.upToDateWhen { false }
+    systemProperty "file.encoding", "utf-8"
+}
+
+
+task smokeTest(type: Test) {
+    useTestNG() {
+        def threadCount = System.getProperty("threadCount", "2")
+
+        suiteXmlBuilder().suite(name: 'smoke.tests', parallel: 'classes', 'thread-count': threadCount) {
+            test(name: 'Smoke tests') {
+                groups {
+                    run {
+                        'include'(name: 'smoke')
+                    }
+                }
+
+                packages {
+                    'package'(name: 'com.lukspay.*')
+                }
+            }
+        }
+    }
+}
+
+

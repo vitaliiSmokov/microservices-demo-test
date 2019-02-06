@@ -14,18 +14,18 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class User {
 
-    @JsonProperty("firstName")
-    private String firstName;
+  @JsonProperty("firstName")
+  private String firstName;
 
-    @JsonProperty("lastName")
-    private String lastName;
+  @JsonProperty("lastName")
+  private String lastName;
 
-    @JsonProperty("password")
-    private String password;
+  @JsonProperty("password")
+  private String password;
 
-    @JsonProperty("email")
-    private String email;
+  @JsonProperty("email")
+  private String email;
 
-    @JsonProperty("username")
-    private String username;
+  @JsonProperty("username")
+  private String username;
 }

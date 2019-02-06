@@ -1,29 +1,50 @@
 package com.socks.api;
 
+
 import com.socks.api.conditions.Condition;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @RequiredArgsConstructor
 @Slf4j
 public class AssertableResponse {
 
-    private final ValidatableResponse response;
+  private final ValidatableResponse response;
 
-//    public AssertableResponse(ValidatableResponse validatableResponse) {
-//        this.response = validatableResponse;
-//    }
+  @Step("Api response should have {condition}")
+  public AssertableResponse shouldHave(Condition condition) {
+    log.info("verify :" + condition);
+    condition.verify(response);
+    return this;
+  }
 
-    @Step("api response should have {condition}")
-//    @Step("api response should have {0}")
-    public AssertableResponse shouldHave(Condition condition) {
-        Logger log = LoggerFactory.getLogger(AssertableResponse.class);
-        log.info("verify :" + condition);
-        condition.verify(response);
-        return this;
-    }
+  public ValidatableResponse getResponse() {
+    return response;
+  }
+
+  @Step("Api response should not have {condition}")
+  public AssertableResponse shouldNotHave(Condition condition) {
+    log.info("verify is not:" + condition);
+    condition.verifyNot(response);
+    return this;
+  }
+
+  public <T> T asPojo(String path, Class<T> tClass) {
+    log.info("extract response as {}", tClass.getName());
+    return response
+        .extract()
+        .body()
+        .jsonPath()
+        .getObject(path, tClass);
+  }
+
+  public <T> T asPojo(Class<T> tClass) {
+    log.info("extract response as {}", tClass.getName());
+    return response
+        .extract()
+        .body()
+        .as(tClass);
+  }
 }

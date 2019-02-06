@@ -6,13 +6,13 @@
       <charset>utf-8</charset>
       <Pattern>
         <!--%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n-->
-        %d %-5level %msg%n
+        %d{dd.MM.yy HH:mm:ss} %-5level %msg%n
       </Pattern>
     </encoder>
   </appender>
 
   <logger additivity="false" level="INFO"
-    name="com.socks.api.services">
+    name="com.socks">
     <appender-ref ref="STDOUT"/>
   </logger>
 
