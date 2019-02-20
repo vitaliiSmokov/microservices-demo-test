@@ -2,7 +2,7 @@ package utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.lukspay.pojo.Card;
+import com.socks.ui.pojo.Card;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class CardUtil {
 
-  static ObjectMapper mapper = new ObjectMapper();
-  static String pathToJson;
+  private static ObjectMapper mapper = new ObjectMapper();
+  private static String pathToJson;
 
   public static List<Card> getVisaCards() {
     pathToJson = "C:\\Users\\user\\IdeaProjects\\lukspay_tests\\UI_tests\\src\\test\\resources\\";
