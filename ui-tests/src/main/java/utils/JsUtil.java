@@ -1,5 +1,7 @@
 package utils;
 
+import static com.codeborne.selenide.Selenide.$x;
+
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lombok.extern.slf4j.Slf4j;
@@ -21,5 +23,9 @@ public class JsUtil {
     Selenide.executeJavaScript(
         "arguments[0].click();", element.toWebElement()
     );
+  }
+
+  public static void clickElementByJSContainsText(String text) {
+    clickElementByJS($x(String.format("//*[contains(text(),'%s')]", text)));
   }
 }
