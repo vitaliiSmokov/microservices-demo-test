@@ -58,16 +58,4 @@ abstract class BaseTest {
     SelenideLogger.addListener("allure", new AllureSelenide());
     faker = new Faker();
   }
-
-  void waitForJSLoad() {
-    new WebDriverWait(WebDriverRunner.getWebDriver(), 30).until((ExpectedCondition<Boolean>) wd ->
-        ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
-  }
-
-  void waitForAngularLoad() {
-    final String angularReadyScript = "return (window.angular !== undefined) && (angular.element(document.body).injector() !== undefined) && (angular.element(document.body).injector().get('$http').pendingRequests.length === 0)";
-    ExpectedCondition<Boolean> angularLoad = webDriver -> Boolean
-        .valueOf(executeJavaScript(angularReadyScript).toString());
-    Wait().until(angularLoad);
-  }
 }
