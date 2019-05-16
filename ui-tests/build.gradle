@@ -16,6 +16,9 @@ dependencies {
     compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
     compile group: 'com.sun.mail', name: 'smtp', version: '1.6.3'
 
+    //    WebDriver manager for java
+    implementation 'com.github.rosolko:wdm4j:1.0.0'
+
 }
 
 allure {
@@ -66,24 +69,27 @@ test {
 }
 
 
-task smokeTest(type: Test) {
-    useTestNG() {
+task smoke(type: Test){
+    useTestNG(){
         def threadCount = System.getProperty("threadCount", "2")
-
         suiteXmlBuilder().suite(name: 'smoke.tests', parallel: 'classes', 'thread-count': threadCount) {
-            test(name: 'Smoke tests') {
+            test (name : 'Smoke tests') {
                 groups {
-                    run {
-                        'include'(name: 'smoke')
+                    run{
+                        'include' (name:'smoke')
                     }
                 }
-
                 packages {
-                    'package'(name: 'com.lukspay.*')
+                    'package' (name: 'com.lukspay.*')
                 }
             }
         }
     }
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat = 'full'
+    }
+    test.outputs.upToDateWhen { false }
 }
 
 

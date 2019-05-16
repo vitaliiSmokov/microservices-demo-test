@@ -2,6 +2,7 @@ package com.socks.ui.tests;
 
 import static com.codeborne.selenide.Selenide.Wait;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.socks.api.utils.RandomUtil.getFaker;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
@@ -37,6 +38,7 @@ abstract class BaseTest {
 
   @BeforeSuite
   public void initBrowser() {
+    //    new WebDriverManager().setup(new ChromeConfig());
     Browser browser = System.getProperty("selenide.browser") != null
         ? Browser.valueOf(System.getProperty("selenide.browser").toUpperCase()) : Browser.CHROME;
     switch (browser) {
@@ -56,6 +58,6 @@ abstract class BaseTest {
     Configuration.baseUrl = properties.getProperty("link");
     RestAssured.baseURI = properties.getProperty("link").concat("api");
     SelenideLogger.addListener("allure", new AllureSelenide());
-    faker = new Faker();
+    faker = getFaker();
   }
 }

@@ -15,6 +15,16 @@ import java.util.Map;
  */
 public class JsonUtil<T> {
 
+  public static <T> T parseJsonToPojo(String file, Class<T> clazz) {
+    T pojo = null;
+    try {
+      pojo = new ObjectMapper().readValue(new FileInputStream(file), clazz);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return pojo;
+  }
+
   /**
    * This method parses JSON file into POJO, using DTO class
    *
@@ -49,15 +59,5 @@ public class JsonUtil<T> {
       e.printStackTrace();
     }
     return map;
-  }
-
-  public Class<T> parseJsonToPOJO(String file, Class<?> dtoBaseClass) {
-    Class<T> result = null;
-    try {
-      result = (Class<T>) new ObjectMapper().readValue(new FileInputStream(file), dtoBaseClass);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return result;
   }
 }

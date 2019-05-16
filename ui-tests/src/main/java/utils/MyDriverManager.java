@@ -1,7 +1,7 @@
 package utils;
 
 import com.codeborne.selenide.Configuration;
-import com.lukspay.enums.Browser;
+import com.socks.ui.pages.enums.*;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.qameta.allure.Step;
 import java.net.MalformedURLException;

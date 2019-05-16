@@ -1,6 +1,6 @@
-package utils;
+package com.socks.api.utils;
 
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @author Vitalii Smokov 23.01.2019
@@ -29,5 +29,9 @@ public class RegexUtil {
     return Optional.ofNullable(text)
         .map(str -> str.replaceAll(String.format("\\d{%s}", length), ""))
         .orElse(null);
+  }
+
+  public static String toUpperCaseFirstLetter(String text) {
+    return text.substring(0,1).toUpperCase().concat(text.substring(1));
   }
 }

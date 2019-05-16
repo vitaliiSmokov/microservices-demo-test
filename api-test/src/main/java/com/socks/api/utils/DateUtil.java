@@ -1,8 +1,6 @@
 package com.socks.api.utils;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.Date;
 
 /**
@@ -26,5 +24,13 @@ public class DateUtil {
     return Date
         .from(dateToConvert.atZone(ZoneId.systemDefault())
             .toInstant());
+  }
+
+  public static ZonedDateTime toZonedDateTime(Date date) {
+    if (date == null) {
+      return null;
+    }
+    final ZoneId systemDefault = ZoneId.systemDefault();
+    return ZonedDateTime.ofInstant(date.toInstant(), systemDefault);
   }
 }
