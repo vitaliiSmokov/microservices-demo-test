@@ -1,7 +1,7 @@
 ext {
     testNgVersion = '6.13'
-    selenideVersion = '4.12.1'
-//    selenideVersion = '5.0.1'
+    selenideVersion = '5.2.2'
+    allureVersion = '2.11.0'
 }
 
 dependencies {
@@ -9,7 +9,7 @@ dependencies {
     compile "com.codeborne:selenide:$selenideVersion"
     compile "org.testng:testng:$testNgVersion"
     compile "org.codehaus.groovy:groovy-xml:2.4.15"
-//    testImplementation('io.qameta.allure:allure-selenide:2.8.1')
+    testImplementation("io.qameta.allure:allure-selenide:$allureVersion")
 
 //    Java mail
     compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
@@ -22,7 +22,7 @@ dependencies {
 }
 
 allure {
-    version = '2.4.1'
+    version = "$allureVersion"
     aspectjweaver = true
     autoconfigure = true
 

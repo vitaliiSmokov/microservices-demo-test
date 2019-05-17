@@ -1,7 +1,7 @@
 ext {
     junitVersion = '5.3.1'
     restAssuredVersion = '3.2.0'
-    allureRestAssuredVersion = '2.7.0'
+    allureVersion = '2.11.0'
     jacksonDatabindVersion = '2.9.7'
     slf4jVersion = '1.7.25'
     logbackVersion = '1.2.3'
@@ -17,7 +17,7 @@ dependencies {
     implementation("io.rest-assured:rest-assured:$restAssuredVersion")
 
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion"
-    compile "io.qameta.allure:allure-rest-assured:$allureRestAssuredVersion"
+    compile "io.qameta.allure:allure-rest-assured:$allureVersion"
 
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "ch.qos.logback:logback-classic:$logbackVersion"
@@ -61,11 +61,12 @@ task smoke(type: Test) {
 
 allure {
 
-    version = '2.7.0'
+    version = "$allureVersion"
     aspectjweaver = true
     configuration = 'compile'
+    downloadLink = "https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/$allureVersion/allure-commandline-$allureVersion"+".zip"
 
     useJUnit5 {
-        version = '2.7.0'
+        version = "$allureVersion"
     }
 }
