@@ -80,6 +80,7 @@ test {
 
 
 task smoke(type: Test){
+    systemProperty "env", "PROD"
     useTestNG(){
         def threadCount = System.getProperty("threadCount", "2")
         suiteXmlBuilder().suite(name: 'smoke.tests', parallel: 'classes', 'thread-count': threadCount) {
@@ -90,13 +91,14 @@ task smoke(type: Test){
                     }
                 }
                 packages {
-                    'package' (name: 'com.lukspay.*')
+                    'package' (name: 'com.package.*')
                 }
             }
         }
     }
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"
+        showStandardStreams = true
         exceptionFormat = 'full'
     }
     test.outputs.upToDateWhen { false }
