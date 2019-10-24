@@ -1,12 +1,13 @@
 package utils;
 
 import com.codeborne.selenide.Configuration;
-import com.socks.ui.pages.enums.*;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.qameta.allure.Step;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Objects;
+
+import io.swagger.petstore.ui.pages.enums.Browser;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

@@ -11,8 +11,8 @@
     </groups>
 
     <classes>
-      <class name="com.socks.ui.tests.EmailTest"/>
-      <class name="com.socks.ui.tests.RegistrationTest"/>
+      <class name="io.swagger.petstore.ui.tests.EmailTest"/>
+      <class name="io.swagger.petstore.ui.tests.RegistrationTest"/>
     </classes>
   </test>
 

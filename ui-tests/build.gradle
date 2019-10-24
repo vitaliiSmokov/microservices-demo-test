@@ -22,6 +22,9 @@ dependencies {
 //  ashot  https://dou.ua/lenta/articles/highway-to-automation-hell/
 //    https://github.com/pazone/ashot
     compile group: 'ru.yandex.qatools.ashot', name: 'ashot', version: '1.5.4'
+
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.4'
+
 }
 
 allure {

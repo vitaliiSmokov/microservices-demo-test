@@ -2,7 +2,7 @@ package utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.socks.ui.pojo.Card;
+import io.swagger.petstore.ui.pojo.Card;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
