@@ -45,7 +45,7 @@ class UserManagerTest {
         @DisplayName("Get user by user name")
         void TestCanGetUserByUsername() {
             userApiService
-                    .getUserByUsername(UserManagerTest.userDTO)
+                    .getUserByUsername(userDTO)
                     .shouldHave(statusCode(SC_OK))
                     .shouldHave(bodyAsPojo(userDTO));
         }
