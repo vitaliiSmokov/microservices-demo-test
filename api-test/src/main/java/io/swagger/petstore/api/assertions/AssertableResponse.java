@@ -1,6 +1,7 @@
-package io.swagger.petstore.api;
+package io.swagger.petstore.api.assertions;
 
 import io.qameta.allure.Step;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import io.swagger.petstore.api.conditions.Condition;
 import lombok.RequiredArgsConstructor;
@@ -67,5 +68,9 @@ public class AssertableResponse {
                 .body()
                 .jsonPath()
                 .getList(path);
+    }
+
+    public Headers headers() {
+        return response.getHeaders();
     }
 }

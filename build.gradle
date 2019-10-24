@@ -7,7 +7,7 @@ buildscript {
     dependencies {
         classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
         classpath "io.franzbecker:gradle-lombok:1.14"
-        classpath "io.qameta.allure:allure-gradle:2.7.0"
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
     }
 }
 
