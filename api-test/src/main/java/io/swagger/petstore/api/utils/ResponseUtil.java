@@ -1,6 +1,6 @@
 package io.swagger.petstore.api.utils;
 
-import io.swagger.petstore.api.AssertableResponse;
+import io.swagger.petstore.api.assertions.AssertableResponse;
 import io.swagger.petstore.api.conditions.Conditions;
 
 import java.util.HashMap;

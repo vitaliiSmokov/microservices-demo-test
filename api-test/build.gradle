@@ -30,7 +30,7 @@ dependencies {
     compile "com.github.javafaker:javafaker:$javafakerVersion"
     compile "com.devskiller:jfairy:$jfairyVersion"
 
-    testCompile("org.assertj:assertj-core:$assertjVersion")
+    compile("org.assertj:assertj-core:$assertjVersion")
 
     //mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
@@ -61,7 +61,8 @@ task smoke(type: Test) {
 
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"
-        exceptionFormat = 'short'
+        showStandardStreams = true
+        exceptionFormat = 'full'
     }
     test.outputs.upToDateWhen { false }
 }

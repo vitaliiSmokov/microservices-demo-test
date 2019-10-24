@@ -15,10 +15,10 @@ import lombok.experimental.Accessors;
 public class UserDTO {
 
     @JsonProperty("id")
-    private String id;
+    private long id;
 
     @JsonProperty("userStatus")
-    private String userStatus;
+    private long userStatus;
 
     @JsonProperty("email")
     private String email;
