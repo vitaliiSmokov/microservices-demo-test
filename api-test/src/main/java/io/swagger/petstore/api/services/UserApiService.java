@@ -30,12 +30,14 @@ public class UserApiService extends AuthBase {
                 getResource(initSpec(ContentType.JSON), USER_BY_USERNAME.getUrl(user.username())));
     }
 
+    @Step("Update user: {user}")
     public AssertableResponse updateUser(UserDTO user) {
         return new AssertableResponse(
                 putResource(initSpec(ContentType.JSON), USER_BY_USERNAME.getUrl(user.username()), user)
         );
     }
 
+    @Step("Delete user: {user}")
     public AssertableResponse deleteUser(UserDTO user) {
         return new AssertableResponse(
                 deleteResource(initSpec(ContentType.JSON), USER_BY_USERNAME.getUrl(user.username()))

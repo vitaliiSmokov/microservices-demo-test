@@ -14,6 +14,10 @@ public class Conditions {
         return new BodyCondition(id, matcher);
     }
 
+    public BodyCondition body(Matcher<?> matcher) {
+        return body(null, matcher);
+    }
+
     public <T> BodyAsPojoCondition bodyAsPojo(T pojo) {
         return new BodyAsPojoCondition<>(pojo);
     }

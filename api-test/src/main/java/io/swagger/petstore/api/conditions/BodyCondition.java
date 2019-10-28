@@ -14,16 +14,27 @@ public class BodyCondition implements Condition {
 
     @Override
     public void verify(Response response) {
-        response.then().assertThat().body(jsonPath, matcher);
+        if (jsonPath != null) {
+            response.then().assertThat().body(jsonPath, matcher);
+        } else {
+            response.then().assertThat().body(matcher);
+        }
     }
 
     @Override
     public void verifyNot(Response response) {
-        response.then().assertThat().body(jsonPath, not(matcher));
+        if (jsonPath != null) {
+            response.then().assertThat().body(jsonPath, not(matcher));
+        } else {
+            response.then().assertThat().body(not(matcher));
+        }
     }
 
     @Override
     public String toString() {
-        return "body \"".concat(jsonPath).concat("\": is ").concat(String.valueOf(matcher));
+        if (jsonPath != null) {
+            return "body \"".concat(jsonPath).concat("\": is ").concat(String.valueOf(matcher));
+        }
+        return "body ".concat(" is ").concat(String.valueOf(matcher));
     }
 }

@@ -4,12 +4,14 @@ import com.devskiller.jfairy.producer.person.Person;
 import io.swagger.petstore.api.model.UserDTO;
 import io.swagger.petstore.api.services.UserApiService;
 import io.swagger.petstore.api.utils.RandomUtil;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.*;
 
-import static io.swagger.petstore.api.conditions.Conditions.bodyAsPojo;
-import static io.swagger.petstore.api.conditions.Conditions.statusCode;
+import static io.swagger.petstore.api.conditions.Conditions.*;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.hamcrest.Matchers.blankString;
 
+@DisplayName("User management tests")
 class UserManagerTest {
 
     private final static UserApiService userApiService = new UserApiService();
@@ -31,8 +33,7 @@ class UserManagerTest {
     static void deleteUser() {
         if (userDTO != null) {
             userApiService
-                    .deleteUser(userDTO)
-                    .shouldHave(statusCode(SC_OK));
+                    .deleteUser(userDTO);
         }
     }
 
@@ -45,21 +46,8 @@ class UserManagerTest {
     }
 
     @Nested
-    class GetUser {
-
-        @Test
-        @DisplayName("Get user by user name")
-        void testCanGetUserByUsername() {
-            userApiService
-                    .getUserByUsername(userDTO)
-                    .shouldHave(statusCode(SC_OK))
-                    .shouldHave(bodyAsPojo(userDTO));
-        }
-    }
-
-    @Nested
+    @DisplayName("Update user")
     class UpdateUser {
-
         @Test
         @DisplayName("Update user")
         void testCanUpdateUser() {
@@ -69,9 +57,34 @@ class UserManagerTest {
                                     .firstName(person.getFirstName())
                                     .lastName(person.getLastName())
                     )
-                    .shouldHave(statusCode(SC_OK));
+                    .shouldHave(statusCode(SC_OK))
+                    .shouldHave(body(blankString()));
+        }
+
+        @Nested
+        @DisplayName("Get user")
+        class GetUser {
+            @Test
+            @DisplayName("Get user by user name")
+            void testCanGetUserByUsername() {
+                userApiService
+                        .getUserByUsername(userDTO)
+                        .shouldHave(statusCode(SC_OK))
+                        .shouldHave(bodyAsPojo(userDTO));
+            }
+
+            @Nested
+            @DisplayName("Delete user")
+            class DeleteUser {
+                @Test
+                @DisplayName("Delete user by name")
+                void testCanDeleteUser() {
+                    userApiService.deleteUser(userDTO)
+                            .shouldHave(statusCode(SC_OK))
+                            .shouldHave(body(blankString()));
+                    userDTO = null;
+                }
+            }
         }
     }
-
-
 }
