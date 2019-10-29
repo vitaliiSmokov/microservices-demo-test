@@ -18,14 +18,14 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-public class MYSQLMethods {
+public class MySQLMethods {
 
   public void deleteEntry(DBTables tableFrom, String partOfQuery) {
     String query = String.format("DELETE FROM %1$s WHERE %2$s", tableFrom.getTable(), partOfQuery);
 
     try {
       log.info(">>> " + query);
-      new QueryRunner().update(MSQLBase.connection, query);
+      new QueryRunner().update(MySQLBase.connection, query);
     } catch (SQLException e) {
       log.error(e.getMessage());
     }
@@ -39,7 +39,7 @@ public class MYSQLMethods {
     log.info(query);
 
     try {
-      new QueryRunner().update(MSQLBase.connection, query);
+      new QueryRunner().update(MySQLBase.connection, query);
     } catch (SQLException e) {
       log.error(e.getMessage());
     }
@@ -52,7 +52,7 @@ public class MYSQLMethods {
             "SELECT %1$s  FROM %2$s WHERE %3$s", whatToSelect, table.getTable(), partOfquery);
     log.info(query);
     try {
-      rs = MSQLBase.connection.createStatement().executeQuery(query);
+      rs = MySQLBase.connection.createStatement().executeQuery(query);
       if (rs.next()) {
         return rs.getString(1);
       }
@@ -68,7 +68,7 @@ public class MYSQLMethods {
     ResultSet rs;
     log.info(query);
     try {
-      rs = MSQLBase.connection.createStatement().executeQuery(query);
+      rs = MySQLBase.connection.createStatement().executeQuery(query);
 
       if (rs != null) {
         ResultSetMetaData metaData = rs.getMetaData();
@@ -128,7 +128,7 @@ public class MYSQLMethods {
     ResultSet rs;
     log.info(query);
     try {
-      rs = MSQLBase.connection.createStatement().executeQuery(query);
+      rs = MySQLBase.connection.createStatement().executeQuery(query);
       if (rs != null) {
         while (rs.next()) {
           list.add(rs.getString(1));

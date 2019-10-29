@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @Slf4j
-public class MSQLBase {
+public class MySQLBase {
   static Connection connection;
   private static Session session;
   private String DB_USER;
@@ -21,7 +21,7 @@ public class MSQLBase {
   private String rhost;
   private String DB_URL;
 
-  public MSQLBase() {
+  public MySQLBase() {
     this.DB_USER = "configProperties.mysqlUser()";
     this.DB_PASSWORD = "configProperties.mysqlPass()";
     this.rhost = "configProperties.mysqlHost()";
