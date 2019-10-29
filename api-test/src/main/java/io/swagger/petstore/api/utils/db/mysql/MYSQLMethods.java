@@ -4,8 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.google.gson.Gson;
 import io.qameta.allure.Step;
+import io.swagger.petstore.api.utils.db.mysql.enums.DBTables;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.dbutils.QueryRunner;
-import services.mysql.enums.DBTables;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -16,18 +17,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static util.UTIL.logger;
-
-public class DB_Methods {
+@Slf4j
+public class MYSQLMethods {
 
   public void deleteEntry(DBTables tableFrom, String partOfQuery) {
     String query = String.format("DELETE FROM %1$s WHERE %2$s", tableFrom.getTable(), partOfQuery);
 
     try {
-      System.out.println(">>> " + query);
+      log.info(">>> " + query);
       new QueryRunner().update(MSQLBase.connection, query);
     } catch (SQLException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
   }
 
@@ -36,12 +36,12 @@ public class DB_Methods {
     String query =
         String.format(
             "UPDATE %1$s SET %2$s " + "WHERE %3$s", tableFrom.getTable(), setSmth, whereQuery);
-    logger.info(query);
+    log.info(query);
 
     try {
       new QueryRunner().update(MSQLBase.connection, query);
     } catch (SQLException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
   }
 
@@ -50,7 +50,7 @@ public class DB_Methods {
     String query =
         String.format(
             "SELECT %1$s  FROM %2$s WHERE %3$s", whatToSelect, table.getTable(), partOfquery);
-    System.out.println(query);
+    log.info(query);
     try {
       rs = MSQLBase.connection.createStatement().executeQuery(query);
       if (rs.next()) {
@@ -58,7 +58,7 @@ public class DB_Methods {
       }
 
     } catch (SQLException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
     return null;
   }
@@ -66,7 +66,7 @@ public class DB_Methods {
   private String getSmthToMap(String query) {
     List list = new ArrayList();
     ResultSet rs;
-    System.out.println(query);
+    log.info(query);
     try {
       rs = MSQLBase.connection.createStatement().executeQuery(query);
 
@@ -85,7 +85,7 @@ public class DB_Methods {
         }
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
     Gson gson = new Gson();
     return gson.toJson(list);
@@ -104,7 +104,7 @@ public class DB_Methods {
           mapper.getTypeFactory().constructCollectionType(ArrayList.class, tClass);
       resList = mapper.readValue(jsonFromMySQL, listType);
     } catch (IOException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
     return resList;
   }
@@ -118,7 +118,7 @@ public class DB_Methods {
           mapper.getTypeFactory().constructCollectionType(ArrayList.class, tClass);
       resList = mapper.readValue(jsonFromMySQL, listType);
     } catch (IOException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
     return resList;
   }
@@ -126,7 +126,7 @@ public class DB_Methods {
   public List<String> getStringList(String query) {
     List<String> list = new ArrayList<>();
     ResultSet rs;
-    System.out.println(query);
+    log.info(query);
     try {
       rs = MSQLBase.connection.createStatement().executeQuery(query);
       if (rs != null) {
@@ -135,7 +135,7 @@ public class DB_Methods {
         }
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
     return list;
   }

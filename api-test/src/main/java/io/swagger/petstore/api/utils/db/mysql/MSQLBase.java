@@ -35,9 +35,9 @@ public class MSQLBase {
       log.info("Init MySql connection to {}", DB_URL);
       try {
         connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-        System.out.println("Database connection established");
+        log.info("Database connection established");
       } catch (SQLException e) {
-        e.printStackTrace();
+        log.error(e.getMessage());
       }
     }
 
@@ -48,7 +48,7 @@ public class MSQLBase {
     log.info("Loading driver...");
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
-      System.out.println("Driver loaded!");
+      log.info("Driver loaded!");
     } catch (ClassNotFoundException e) {
       throw new IllegalStateException("Cannot find the driver in the classpath!", e);
     }
@@ -65,11 +65,11 @@ public class MSQLBase {
       jSch.addIdentity("configProperties.mysqlSshPrivateKeyDest()");
       session.connect();
       log.info("Connected");
-      int assinged_port = session.setPortForwardingL(lport, rhost, rport);
-      log.info("localhost:" + assinged_port + " -> " + rhost + ":" + rport);
+      int port = session.setPortForwardingL(lport, rhost, rport);
+      log.info("localhost:" + port + " -> " + rhost + ":" + rport);
       log.info("Port Forwarded");
     } catch (JSchException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
   }
 
@@ -85,7 +85,7 @@ public class MSQLBase {
         connection.close();
         connection = null;
       } catch (SQLException e) {
-        e.printStackTrace();
+        log.error(e.getMessage());
       } catch (NullPointerException ignored) {
       }
       closeSession();
