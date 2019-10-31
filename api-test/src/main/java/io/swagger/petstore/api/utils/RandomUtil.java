@@ -1,13 +1,16 @@
 package io.swagger.petstore.api.utils;
 
 import com.devskiller.jfairy.Fairy;
+import com.devskiller.jfairy.producer.person.Person;
 import com.github.javafaker.Faker;
+import lombok.experimental.UtilityClass;
 
 import java.util.Random;
 
 /**
  * @author Vitalii Smokov 19.03.2019
  */
+@UtilityClass
 public class RandomUtil {
 
     private static Faker faker;
@@ -22,17 +25,21 @@ public class RandomUtil {
         return stringBuffer.toString().substring(0, numbers);
     }
 
-    public static Faker getFaker() {
+    public Faker getFaker() {
         if (faker == null) {
             faker = new Faker();
         }
         return faker;
     }
 
-    public static Fairy getFairy() {
+    public Fairy getFairy() {
         if (fairy == null) {
             fairy = Fairy.create();
         }
         return fairy;
+    }
+
+    public Person getPerson() {
+        return getFairy().person();
     }
 }

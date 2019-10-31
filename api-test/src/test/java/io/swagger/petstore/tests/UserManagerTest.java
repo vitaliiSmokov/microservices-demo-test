@@ -1,13 +1,12 @@
 package io.swagger.petstore.tests;
 
-import com.devskiller.jfairy.producer.person.Person;
 import io.swagger.petstore.api.model.UserDTO;
 import io.swagger.petstore.api.services.UserApiService;
-import io.swagger.petstore.api.utils.RandomUtil;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.*;
 
 import static io.swagger.petstore.api.conditions.Conditions.*;
+import static io.swagger.petstore.api.generators.UserGenerator.getUserDTO;
+import static io.swagger.petstore.api.utils.RandomUtil.getPerson;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.blankString;
 
@@ -15,18 +14,12 @@ import static org.hamcrest.Matchers.blankString;
 class UserManagerTest {
 
     private final static UserApiService userApiService = new UserApiService();
-    private final static Person person = RandomUtil.getFairy().person();
     private static UserDTO userDTO;
 
 
     @BeforeAll
     static void createUserDTO() {
-        userDTO = new UserDTO()
-                .firstName(person.getFirstName())
-                .lastName(person.getLastName())
-                .username(person.getUsername())
-                .email(person.getEmail())
-                .password(person.getPassword());
+        userDTO = getUserDTO();
     }
 
     @AfterAll
@@ -54,8 +47,8 @@ class UserManagerTest {
             userApiService
                     .updateUser(
                             userDTO
-                                    .firstName(person.getFirstName())
-                                    .lastName(person.getLastName())
+                                    .firstName(getPerson().getFirstName())
+                                    .lastName(getPerson().getLastName())
                     )
                     .shouldHave(statusCode(SC_OK))
                     .shouldHave(body(blankString()));

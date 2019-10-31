@@ -22,6 +22,10 @@ public abstract class RestApiBase {
         return given(spec).get(requestURL);
     }
 
+    protected Response getResourceWithParams(RequestSpecification spec, String requestURL, Map<String, ?> params) {
+        return given(spec.with().params(params)).get(requestURL);
+    }
+
     protected <T> T getResource(
             RequestSpecification spec, String requestURL, String fieldToExtract, Class<T> responseClass) {
         return getResource(spec, requestURL, HttpStatus.SC_OK)

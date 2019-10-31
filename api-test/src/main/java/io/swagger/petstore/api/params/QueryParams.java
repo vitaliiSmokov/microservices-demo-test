@@ -1,4 +1,4 @@
-package io.swagger.petstore.api;
+package io.swagger.petstore.api.params;
 
 
 import java.util.Arrays;
