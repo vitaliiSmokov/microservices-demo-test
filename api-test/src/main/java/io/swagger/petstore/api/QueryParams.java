@@ -1,7 +1,5 @@
 package io.swagger.petstore.api;
 
-//import com.futurecloud.enums.FilterType;
-//import com.futurecloud.enums.Sort;
 
 import java.util.Arrays;
 import java.util.HashMap;

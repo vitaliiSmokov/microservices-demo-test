@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 import com.codeborne.selenide.*;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.WebElement;
 
 /**
  * @author Vitalii Smokov 20.02.2019
@@ -49,5 +50,10 @@ public class JSUtil {
 //      WebDriverWait wait = new WebDriverWait(driver(), 5);
 //      wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }
+  }
+
+  private SelenideElement highlightElement(SelenideElement element) {
+    executeJavaScript("arguments[0].style.border='3px solid red'", element.toWebElement());
+    return element;
   }
 }

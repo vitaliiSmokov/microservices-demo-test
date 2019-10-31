@@ -1,4 +1,6 @@
 rootProject.name = 'microservices-demo'
 include 'api-test'
 include 'ui-tests'
+include 'selemium4-test'
+findProject(':selemium4-test')?.name = 'selemium4'
 

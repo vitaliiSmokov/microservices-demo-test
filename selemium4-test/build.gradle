@@ -1,0 +1,10 @@
+ext {
+    testNgVersion = '7.0.0'
+    seleniumVersion = '4.0.0-alpha-3'
+}
+
+dependencies {
+    compile project(":api-test")
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: "$seleniumVersion"
+    compile "org.testng:testng:$testNgVersion"
+}
