@@ -20,4 +20,7 @@ public interface ConfigProperties extends Config {
   String password();
 
   String application();
+
+  @DefaultValue("10000")
+  long timeout();
 }

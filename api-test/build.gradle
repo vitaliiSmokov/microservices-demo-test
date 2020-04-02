@@ -10,6 +10,7 @@ ext {
     assertjVersion = '3.11.1'
     ownerVersion = '1.0.10'
     jodaTimeVersion = '2.10.5'
+    awaitilityVersion = '4.0.1'
 }
 
 dependencies {
@@ -33,6 +34,8 @@ dependencies {
     compile "com.devskiller:jfairy:$jfairyVersion"
 
     compile("org.assertj:assertj-core:$assertjVersion")
+
+    compile "org.awaitility:awaitility:$awaitilityVersion"
 
     //mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
