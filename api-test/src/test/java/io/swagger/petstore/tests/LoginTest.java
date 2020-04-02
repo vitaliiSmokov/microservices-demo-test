@@ -11,7 +11,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.containsString;
 
 @DisplayName("Login and logout user")
-public class LoginTest {
+public class LoginTest extends BaseApiTest{
 
     private static final UserApiService userApiService = new UserApiService();
     static UserDTO userDTO;
