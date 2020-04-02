@@ -1,7 +1,8 @@
 package io.swagger.petstore.api.utils.db.mysql.enums;
 
 public enum DBTables {
-  TOKENS("tokens");
+  TOKENS("tokens"),
+  ADMINS("admin");
 
   private String table;
 
