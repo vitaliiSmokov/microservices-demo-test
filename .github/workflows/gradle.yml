@@ -22,7 +22,7 @@ jobs:
         java-version: ${{matrix.java}}
 
     - name: Grant execute permissions for ./gradlew
-        run: chmod +x gradlew
+      run: chmod +x gradlew
 
     - name: Build with Gradle
       run: ./gradlew assemble
