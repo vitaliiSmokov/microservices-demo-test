@@ -1,0 +1,107 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "User management tests",
+    "children" : [ {
+      "name" : "Register new user",
+      "uid" : "6657aff7d0a989d2",
+      "parentUid" : "0a6bef752fdd8058576868915e1644aa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607704780269,
+        "stop" : 1607704784110,
+        "duration" : 3841
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "0a6bef752fdd8058576868915e1644aa"
+  }, {
+    "name" : "Update user",
+    "children" : [ {
+      "name" : "Update user",
+      "uid" : "28a2389b938633b7",
+      "parentUid" : "3b22bac54e99bd144ccd069fbc758494",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607704784167,
+        "stop" : 1607704785582,
+        "duration" : 1415
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "3b22bac54e99bd144ccd069fbc758494"
+  }, {
+    "name" : "Get user",
+    "children" : [ {
+      "name" : "Get user by user name",
+      "uid" : "29a73a48814a6531",
+      "parentUid" : "fa8e4b8729b01e61aa596450f717ae2e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607704785586,
+        "stop" : 1607704785936,
+        "duration" : 350
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "fa8e4b8729b01e61aa596450f717ae2e"
+  }, {
+    "name" : "Delete user",
+    "children" : [ {
+      "name" : "Delete user by name",
+      "uid" : "be9b1081725781be",
+      "parentUid" : "50edbef6f536ff26ad1c358da892b85c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607704785954,
+        "stop" : 1607704786102,
+        "duration" : 148
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "50edbef6f536ff26ad1c358da892b85c"
+  }, {
+    "name" : "Login and logout user",
+    "children" : [ {
+      "name" : "Login user",
+      "uid" : "7fcc6dca0040764b",
+      "parentUid" : "027c1900ace511544504c92b77a6f82e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607704786263,
+        "stop" : 1607704786489,
+        "duration" : 226
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "027c1900ace511544504c92b77a6f82e"
+  }, {
+    "name" : "Logout user",
+    "children" : [ {
+      "name" : "Logout user",
+      "uid" : "e34ce370a76b2df6",
+      "parentUid" : "97bf54fde087641aa01684bf8e26d1e3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607704786500,
+        "stop" : 1607704786682,
+        "duration" : 182
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "97bf54fde087641aa01684bf8e26d1e3"
+  } ],
+  "name" : "suites"
+}
