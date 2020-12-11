@@ -25,9 +25,9 @@ jobs:
       run: ./gradlew assemble
 
     - name: Run API tests
-      run: ./gradlew clean api-test:test allureReport
+      run: ./gradlew clean api-test:test api-test:allureReport
 
     - uses: actions/upload-artifact@v2
       with:
         name: Generate Allure Report
-        path: ./build/reports/allure-report/
+        path: ./api-test/build/reports/allure-report
