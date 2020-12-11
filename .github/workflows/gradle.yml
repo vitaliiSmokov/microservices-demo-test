@@ -1,48 +1,74 @@
-name: Java CI
+name: Allure Reports with history
 
 on:
+  #schedule:
+  #  - cron: '*/3 * * * *'
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    branches-ignore:
+      - '!master' # ignore gh-pages
+    paths:
+      - '!.gitlab-ci.yml'
+      - '!allure-template.yml'
+    #  - '**/allure-history.yml'
 
 jobs:
-  build:
-
+  autotests:
+    name: Generate Allure Report
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java: [1.8]
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up JDK ${{matrix.java}}
-      uses: actions/setup-java@v1
-      with:
-        java-version: ${{matrix.java}}
+      - uses: actions/checkout@v2
 
-    - name: Grant execute permissions for ./gradlew
-      run: chmod +x gradlew
+      - uses: actions/cache@v1
+        with:
+          path: |
+            ~/.m2/repository
+            ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
-    - name: Build with Gradle
-      run: ./gradlew assemble
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
 
-    - name: Run API tests
-      run: ./gradlew clean api-test:test api-test:allureReport
+      - name: Grant execute permissions for ./gradlew
+        run: chmod +x gradlew
 
-#    - uses: actions/upload-artifact@v2
-#      with:
-#        name: Generate Allure Report
-#        path: ./api-test/build/reports/allure-report
+      - name: Install dependencies
+        run: ./gradlew compileTestJava
 
-    - name: Test marketplace action
-      uses: simple-elf/allure-report-action@master
-      if: always()
-      id: allure-report
-      with:
-        allure_results: ./api-test/build/allure-results
-        gh_pages: gh-pages
-        allure_report: ./api-test/build/reports/allure-report
-        allure_history: allure-history
+      - name: Build with Gradle
+        run: ./gradlew assemble
 
+      - name: Run Test
+        if: always()
+        run: ./gradlew api-test:test
+        continue-on-error: true
 
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action
+        uses: simple-elf/allure-report-action@master
+        #uses: ./allure-report-action
+        if: always()
+        #id: allure-report
+        with:
+          allure_results: api-test/build/allure-results
+          #gh_pages: gh-pages
+          #allure_report: allure-report
+          allure_history: allure-history
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
