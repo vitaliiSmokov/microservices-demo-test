@@ -43,6 +43,6 @@ jobs:
         allure_results: ./api-test/build/allure-results
         gh_pages: gh-pages
         allure_report: ./api-test/build/reports/allure-report
-        allure_history: ./api-test/build/reports/allure-report/history
+        allure_history: allure-history
 
 
