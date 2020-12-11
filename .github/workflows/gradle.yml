@@ -1,4 +1,4 @@
-name: Allure Reports with history
+name: Java CI
 
 on:
   #schedule:
