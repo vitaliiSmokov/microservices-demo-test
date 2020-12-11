@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://vitaliiSmokov.github.io/microservices-demo-test",
+  "buildOrder" : 34,
+  "buildName" : "GitHub Actions Run #415829534",
+  "buildUrl" : "https://github.com/vitaliiSmokov/microservices-demo-test/actions/runs/415829534",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://vitaliiSmokov.github.io/microservices-demo-test/34/"
+} ]

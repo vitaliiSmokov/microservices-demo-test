@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Dec 11 16:32:06 GMT 2020","Fri Dec 11 16:32:06 GMT 2020","129","","Logout user","","io.swagger.petstore.tests.LoginTest$LogoutUser","testCanLogoutUser","Logout user",""
+"passed","Fri Dec 11 16:32:01 GMT 2020","Fri Dec 11 16:32:03 GMT 2020","2837","","User management tests","","io.swagger.petstore.tests.UserManagerTest","testCanRegisterUser","Register new user",""
+"passed","Fri Dec 11 16:32:05 GMT 2020","Fri Dec 11 16:32:06 GMT 2020","191","","Login and logout user","","io.swagger.petstore.tests.LoginTest","testCanLoginUser","Login user",""
+"passed","Fri Dec 11 16:32:05 GMT 2020","Fri Dec 11 16:32:05 GMT 2020","389","","Get user","","io.swagger.petstore.tests.UserManagerTest$UpdateUser$GetUser","testCanGetUserByUsername","Get user by user name",""
+"passed","Fri Dec 11 16:32:03 GMT 2020","Fri Dec 11 16:32:05 GMT 2020","1125","","Update user","","io.swagger.petstore.tests.UserManagerTest$UpdateUser","testCanUpdateUser","Update user",""
+"passed","Fri Dec 11 16:32:05 GMT 2020","Fri Dec 11 16:32:05 GMT 2020","146","","Delete user","","io.swagger.petstore.tests.UserManagerTest$UpdateUser$GetUser$DeleteUser","testCanDeleteUser","Delete user by name",""
