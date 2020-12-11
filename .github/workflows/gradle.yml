@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      java: [1.8]
+        java: [1.8]
 
     steps:
     - uses: actions/checkout@v1
@@ -28,6 +28,7 @@ jobs:
       run: ./gradlew clean api-test:test
 
     - uses: actions/upload-artifact@v2
-    - name: Generate Allure Report
+      with:
+        name: Generate Allure Report
         run: ./gradlew api-test:allureReport
         path: ./build/reports/allure-report
