@@ -1,0 +1,61 @@
+[ {
+  "uid" : "62d009df470c906b",
+  "name" : "Logout user",
+  "time" : {
+    "start" : 1607704109812,
+    "stop" : 1607704109937,
+    "duration" : 125
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ae8ba10db6ba468e",
+  "name" : "Update user",
+  "time" : {
+    "start" : 1607704107393,
+    "stop" : 1607704108881,
+    "duration" : 1488
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "59b5ee203844ceb8",
+  "name" : "Get user by user name",
+  "time" : {
+    "start" : 1607704108890,
+    "stop" : 1607704109348,
+    "duration" : 458
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1262433898e2040d",
+  "name" : "Login user",
+  "time" : {
+    "start" : 1607704109612,
+    "stop" : 1607704109802,
+    "duration" : 190
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "515331ca4fc98836",
+  "name" : "Register new user",
+  "time" : {
+    "start" : 1607704103839,
+    "stop" : 1607704107346,
+    "duration" : 3507
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3256e222566091c0",
+  "name" : "Delete user by name",
+  "time" : {
+    "start" : 1607704109356,
+    "stop" : 1607704109474,
+    "duration" : 118
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

@@ -1,0 +1,91 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "fv-az52-394",
+    "children" : [ {
+      "name" : "4276@fv-az52-394.Test worker(9)",
+      "children" : [ {
+        "name" : "Login user",
+        "uid" : "1262433898e2040d",
+        "parentUid" : "33cb0d58dd4cb91a1e3a2db47c835712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704109612,
+          "stop" : 1607704109802,
+          "duration" : 190
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Get user by user name",
+        "uid" : "59b5ee203844ceb8",
+        "parentUid" : "33cb0d58dd4cb91a1e3a2db47c835712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704108890,
+          "stop" : 1607704109348,
+          "duration" : 458
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Register new user",
+        "uid" : "515331ca4fc98836",
+        "parentUid" : "33cb0d58dd4cb91a1e3a2db47c835712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704103839,
+          "stop" : 1607704107346,
+          "duration" : 3507
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Update user",
+        "uid" : "ae8ba10db6ba468e",
+        "parentUid" : "33cb0d58dd4cb91a1e3a2db47c835712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704107393,
+          "stop" : 1607704108881,
+          "duration" : 1488
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Delete user by name",
+        "uid" : "3256e222566091c0",
+        "parentUid" : "33cb0d58dd4cb91a1e3a2db47c835712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704109356,
+          "stop" : 1607704109474,
+          "duration" : 118
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Logout user",
+        "uid" : "62d009df470c906b",
+        "parentUid" : "33cb0d58dd4cb91a1e3a2db47c835712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704109812,
+          "stop" : 1607704109937,
+          "duration" : 125
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "33cb0d58dd4cb91a1e3a2db47c835712"
+    } ],
+    "uid" : "c8045dd19219fe84ebfcfdba18e03855"
+  } ],
+  "name" : "timeline"
+}

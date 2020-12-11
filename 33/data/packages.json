@@ -1,0 +1,111 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "io.swagger.petstore.tests",
+    "children" : [ {
+      "name" : "UserManagerTest",
+      "children" : [ {
+        "name" : "testCanRegisterUser",
+        "uid" : "515331ca4fc98836",
+        "parentUid" : "030728b2a07ca4e2b78234bc0e644db0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704103839,
+          "stop" : 1607704107346,
+          "duration" : 3507
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "030728b2a07ca4e2b78234bc0e644db0"
+    }, {
+      "name" : "UserManagerTest$UpdateUser",
+      "children" : [ {
+        "name" : "testCanUpdateUser",
+        "uid" : "ae8ba10db6ba468e",
+        "parentUid" : "f9065c53dc6e6ad88a132082701083f5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704107393,
+          "stop" : 1607704108881,
+          "duration" : 1488
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "f9065c53dc6e6ad88a132082701083f5"
+    }, {
+      "name" : "UserManagerTest$UpdateUser$GetUser",
+      "children" : [ {
+        "name" : "testCanGetUserByUsername",
+        "uid" : "59b5ee203844ceb8",
+        "parentUid" : "2fa0653f3a1b6452a20c78af4b4deb05",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704108890,
+          "stop" : 1607704109348,
+          "duration" : 458
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2fa0653f3a1b6452a20c78af4b4deb05"
+    }, {
+      "name" : "UserManagerTest$UpdateUser$GetUser$DeleteUser",
+      "children" : [ {
+        "name" : "testCanDeleteUser",
+        "uid" : "3256e222566091c0",
+        "parentUid" : "8870e3b4e9859a6f13965075b2b1bac2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704109356,
+          "stop" : 1607704109474,
+          "duration" : 118
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8870e3b4e9859a6f13965075b2b1bac2"
+    }, {
+      "name" : "LoginTest",
+      "children" : [ {
+        "name" : "testCanLoginUser",
+        "uid" : "1262433898e2040d",
+        "parentUid" : "c8cc283daddc5cc34e446b937d9b85dd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704109612,
+          "stop" : 1607704109802,
+          "duration" : 190
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c8cc283daddc5cc34e446b937d9b85dd"
+    }, {
+      "name" : "LoginTest$LogoutUser",
+      "children" : [ {
+        "name" : "testCanLogoutUser",
+        "uid" : "62d009df470c906b",
+        "parentUid" : "a3006d196ea97910c867d934e3394230",
+        "status" : "passed",
+        "time" : {
+          "start" : 1607704109812,
+          "stop" : 1607704109937,
+          "duration" : 125
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a3006d196ea97910c867d934e3394230"
+    } ],
+    "uid" : "io.swagger.petstore.tests"
+  } ],
+  "name" : "packages"
+}
