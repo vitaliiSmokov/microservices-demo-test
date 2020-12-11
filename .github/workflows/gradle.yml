@@ -1,15 +1,10 @@
 name: Java CI
 
 on:
-  #schedule:
-  #  - cron: '*/3 * * * *'
   push:
-    branches-ignore:
-      - '!master' # ignore gh-pages
-    paths:
-      - '!.gitlab-ci.yml'
-      - '!allure-template.yml'
-    #  - '**/allure-history.yml'
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   autotests:
